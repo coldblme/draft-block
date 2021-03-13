@@ -3,21 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "element-ui": "^2.14.1",
+    "lodash": "^4.17.21",
+    "mescroll.js": "^1.4.2",
+    "rxjs": "^6.6.6",
+    "source-map": "^0.7.3",
+    "vue": "^2.6.11",
+    "vue-pull-to": "^0.1.8",
+    "vue-router": "^3.5.1",
+    "vue-snotify": "^3.2.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@eroad/vue-cli-plugin-source-maps": "^1.0.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
