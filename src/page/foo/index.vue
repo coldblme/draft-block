@@ -1,7 +1,5 @@
 <template>
-	<div id="container" @click="preventDefault" @touch="preventDefault">
-		<div class="info">长按，双击，拖动，双指扩大缩小</div>
-		<div class="info">{{scale}}</div>
+	<div id="container" @click="handleDefault" @touch="handleDefault">
 		<div
 			class="box"
 			:style="boxStyle"
@@ -10,7 +8,18 @@
 			@touchstart="handleStart"
 			@touchend="handleEnd"
 			@dblclick="handleDrag"
-		></div>
+		>
+		</div>
+			<slot
+				class="box"
+				:style="boxStyle"
+				ref="e"
+				@touchmove="handleMove"
+				@touchstart="handleStart"
+				@touchend="handleEnd"
+				@dblclick="handleDrag"
+			>
+			</slot>
 	</div>
 </template>
 <script>
@@ -39,25 +48,31 @@ export default {
 	created: function() {},
 	computed: {
 		boxStyle() {
-			return `position: relative; left: ${this.clientX}px; top: ${this.clientY}px; height: ${this.height}px; width: ${this.height}px; background: ${this.color};`;
+			return `position: absolute; left: ${this.clientX}px; top: ${this.clientY}px; height: ${this.height}px; width: ${this.height}px; background: ${this.color};`;
 		},
 	},
 	methods: {
 		handleDrag() {
 			this.drag = true;
 		},
-		preventDefault(e) {
+		handleDefault(e) {
 			e.preventDefault();
 		},
 		handleMove(e) {
+			e.preventDefault();
 			// 双指操作
 			if (e.touches.length >= 2) {
 				this.now = e.touches
 				this.scale = (this.getDistance(this.now[0],this.now[1])/this.getDistance(this.start[0],this.start[1])).toFixed(2)
-
+				console.log(this.scale)
 				this.height = this.height * this.scale
+				if(this.height > 300){
+					this.height = 300
+				}
+				if(this.height < 50){
+					this.height = 50
+				}
 			}
-			e.preventDefault();
 			clearTimeout(this.startTime);
 			if (this.drag) {
 				const fingers = e.touches;
@@ -130,8 +145,10 @@ export default {
 	overflow: hidden;
 	background: gray;
 	position: relative;
+	user-select: none;
 }
 .box {
+	position: absolute;
 	border-radius: 50%;
 }
 </style>

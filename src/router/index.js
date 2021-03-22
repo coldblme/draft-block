@@ -8,7 +8,7 @@ export default new VueRouter({
 	routes: [
 		{
 			path: "/",
-			component: () => import("../page/foo/index.vue"),
+			component: () => import("../page/bar"),
 		},
 		{
 			path: "/foo",

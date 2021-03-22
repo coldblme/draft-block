@@ -18,6 +18,7 @@
     "scss-loader": "^0.0.1",
     "source-map": "^0.7.3",
     "swiper": "^6.5.0",
+    "vconsole": "^3.4.0",
     "vue": "^2.6.11",
     "vue-pull-to": "^0.1.8",
     "vue-router": "^3.5.1",
