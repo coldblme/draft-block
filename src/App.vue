@@ -1,8 +1,5 @@
 <template>
 	<div id="app">
-		<!-- <div>{{ name }}</div> -->
-		<!-- <div @click="showToast">{{ nickname }}</div>
-		<vue-snotify></vue-snotify> -->
 		<router-view></router-view>
 	</div>
 </template>
@@ -32,8 +29,9 @@ export default {
 		};
 	},
 	created() {
+		// this.imageGet()
 		// console.log(_.chunk(this.arr, 3));
-		// console.log(Math.floor);
+		// console.log(this.foo.filter(item=> !!item))
 	},
 	computed: {
 		...mapState(["name"]),
@@ -43,6 +41,10 @@ export default {
 		...mapMutations({
 			add: "handleName",
 		}),
+		imageGet(){
+			const img = new Image();
+			img.src = "http://192.168.154.121:3076"
+		},
 		warn(message, event) {
 			// 现在可以访问到原生事件
 			if (event) {

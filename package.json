@@ -5,14 +5,22 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "mock": "cross-env NODE_ENV=development nodemon ./express/index.js"
   },
+  "keywords": [
+    "vue",
+    "javascript",
+    "drag"
+  ],
   "dependencies": {
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
     "element-ui": "^2.14.1",
     "lodash": "^4.17.21",
     "mescroll.js": "^1.4.2",
+    "nodemon": "^2.0.7",
     "rxjs": "^6.6.6",
     "scss": "^0.2.4",
     "scss-loader": "^0.0.1",
